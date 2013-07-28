@@ -13,7 +13,7 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.includes(:tags).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
